@@ -10,16 +10,18 @@ const OGHead: FC<IOGHead> = ({
   image: pImage,
   url: pUrl,
 }) => {
-  const title = pTitle || isBrowser() ? document.title : "Page Title";
+  const title = pTitle || (isBrowser() ? document.title : "Page Title");
   const description =
-    pDesc || isBrowser()
+    pDesc ||
+    (isBrowser()
       ? document.querySelector('meta[name="description"]')?.textContent || ""
-      : "Page Description";
-  const url = pUrl || isBrowser() ? location.href : "";
+      : "Page Description");
+  const url = pUrl || (isBrowser() ? location.href : "");
   const image =
-    pImage || isBrowser()
+    pImage ||
+    (isBrowser()
       ? `${CDN_API}/${PUPPETEER_URL}/image?url=${url}&width=800&height=600&x=0&y=0&fullPage=false&quality=50type=jpeg`
-      : "";
+      : "");
 
   return (
     <Head>
