@@ -16,9 +16,3 @@ export interface IOGHead {
   url?: string;
 }
 ```
-
-- Check `dist` folder
-
-```
-npm publish --access=public
-```
