@@ -15,12 +15,11 @@ const OGHead: FC<IOGHead> = ({
     pDesc || isBrowser()
       ? document.querySelector('meta[name="description"]')?.textContent || ""
       : "Page Description";
+  const url = pUrl || isBrowser() ? location.href : "";
   const image =
     pImage || isBrowser()
-      ? `${CDN_API}/${PUPPETEER_URL}/image?url=${location.href}&width=800&height=600&x=0&y=0&fullPage=false&quality=50type=jpeg`
+      ? `${CDN_API}/${PUPPETEER_URL}/image?url=${url}&width=800&height=600&x=0&y=0&fullPage=false&quality=50type=jpeg`
       : "";
-
-  const url = pUrl || isBrowser() ? location.href : "";
 
   return (
     <Head>
@@ -28,7 +27,7 @@ const OGHead: FC<IOGHead> = ({
       <meta property="og:type" content="website" />
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
-      <meta name="og:description" content={description} />
+      <meta property="og:description" content={description} />
     </Head>
   );
 };
