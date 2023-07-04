@@ -4,7 +4,7 @@ import { CDN_API, PUPPETEER_URL } from "utils/constants";
 import { isBrowser } from "utils/functions";
 import { IOGHead } from "./types";
 
-const OgHead: FC<IOGHead> = ({
+const OGHead: FC<IOGHead> = ({
   title: pTitle,
   description: pDesc,
   image: pImage,
@@ -33,4 +33,4 @@ const OgHead: FC<IOGHead> = ({
   );
 };
 
-export default OgHead;
+export default OGHead;
